@@ -6,6 +6,9 @@ using namespace std;
 #define OK 1
 #define ERROR 0
 #define MAX 1000
+/*
+最小生成树
+*/
 typedef struct Arcell
 {
 	double adj;
