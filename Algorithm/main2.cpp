@@ -13,7 +13,7 @@
 using namespace std;
 
 
-struct TreeNode {
+typedef struct TreeNode {
 	int val;
 	TreeNode *left;
 	TreeNode *right;
@@ -49,11 +49,58 @@ struct TreeNode* reConstructBinaryTree(vector<int> pre, vector<int> in)
 	return root;
 }
 
+
+
+//前序遍历
+void Pre(TreeNode *root) {
+
+	if (root!=NULL)
+	{
+		cout << root->val << ",";
+		Pre(root->left);
+		Pre(root->right);
+	}
+
+}
+
+//中序遍历
+void Middle(TreeNode *root) {
+	if (root!=NULL)
+	{
+		Middle(root->left);
+		cout << root->val << ",";
+		Middle(root->right);
+	}
+
+
+}
+//后序遍历
+
+
+void Last(TreeNode *root) {
+	if (root!=NULL)
+	{
+		Last(root->left);
+		Last(root->right);
+		cout << root->val << ",";
+	} 
+}
+
+
 int main()
 {
 	vector<int> pre = { 1, 2, 4, 7, 3, 5, 6, 8 };
 	vector<int> in = { 4, 7, 2, 1, 5, 3, 8, 6 };
 	TreeNode* root = reConstructBinaryTree(pre, in); 
+
+	cout << "前序遍历" << endl;
+	Pre(root);
+
+	cout << "中序遍历" << endl;
+	Middle(root);
+	cout << "后序遍历" << endl;
+	Last(root);
+
 	system("pause");
 	return 0;
 }
