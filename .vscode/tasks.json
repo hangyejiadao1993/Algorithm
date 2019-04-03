@@ -19,7 +19,7 @@
               "args": [
                   "-ggdb",
                   "\"${file}\"",
-                  "--std=c++11",
+                  "--std=c++17",
                   "-o",
                   "\"${fileDirname}\\${fileBasenameNoExtension}.exe\""
               ]

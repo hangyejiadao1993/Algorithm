@@ -11,7 +11,7 @@
                 "UNICODE",
                 "_UNICODE"
             ],
-            "compilerPath": "E://mingw//mingw64////bin//g++.exe",
+            "compilerPath": "E://mingw//mingw64//bin//g++.exe",
             "cStandard": "c11",
             "cppStandard": "c++14",
             "intelliSenseMode": "gcc-x64"
