@@ -16,27 +16,27 @@
       "environment": [],
       "externalConsole": true,
       "MIMode": "gdb",
-      "miDebuggerPath": "E://mingw//mingw64//bin//gdb.exe", // GDB的路径，注意替换成自己的路径
+      "miDebuggerPath": "D://CodeBlocks//MinGW//bin//gdb.exe", // GDB的路径，注意替换成自己的路径
       "setupCommands": [{
         "description": "Enable pretty-printing for gdb",
         "text": "-enable-pretty-printing",
         "ignoreFailures": true
       }]
     }
-    //,
-    // {
-    //   "name": "Java",
-    //   "type": "java",
-    //   "request": "launch",
-    //   "stopOnEntry": true,
-    //   "jdkPath": "${env:JAVA_HOME}/bin",
-    //   "cwd": "${fileDirname}",
-    //   "startupClass": "${fileBasenameNoExtension}",
-    //   "classpath": [
-    //     ".",
-    //     "${fileDirname}"
-    //   ]
-    // },
+    ,
+    {
+      "name": "Java",
+      "type": "java",
+      "request": "launch",
+      "stopOnEntry": true,
+      "jdkPath": "${env:JAVA_HOME}/bin",
+      "cwd": "${fileDirname}",
+      "startupClass": "${fileBasenameNoExtension}",
+      "classpath": [
+        ".",
+        "${fileDirname}"
+      ]
+    }
     
   ]
 }

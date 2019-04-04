@@ -3,7 +3,7 @@
         {
             "name": "Win32",
             "includePath": [
-                "E:/mingw/mingw64/include",
+                "D://CodeBlocks//MinGW//include",
                 "${workspaceRoot}"
             ],
             "defines": [
@@ -11,7 +11,7 @@
                 "UNICODE",
                 "_UNICODE"
             ],
-            "compilerPath": "E://mingw//mingw64//bin//g++.exe",
+            "compilerPath": "D://CodeBlocks//MinGW//bin//g++.exe",
             "cStandard": "c11",
             "cppStandard": "c++14",
             "intelliSenseMode": "gcc-x64"
