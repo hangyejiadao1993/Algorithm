@@ -5,5 +5,8 @@
         "vector": "cpp",
         "*.tcc": "cpp",
         "ostream": "cpp"
-    }
+    },
+    "java.dependency.packagePresentation": "hierarchical",
+    "java.dependency.syncWithFolderExplorer": true,
+    "maven.view": "hierarchical"
 }

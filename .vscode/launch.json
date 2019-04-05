@@ -32,9 +32,11 @@
       "jdkPath": "${env:JAVA_HOME}/bin",
       "cwd": "${fileDirname}",
       "startupClass": "${fileBasenameNoExtension}",
+      "mainClass": "${fileBasenameNoExtension}",
       "classpath": [
         ".",
-        "${fileDirname}"
+        "${fileDirname}",
+        "${env:CLASSPATH}"
       ]
     }
     
