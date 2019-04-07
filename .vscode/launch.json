@@ -14,7 +14,7 @@
       "stopAtEntry": false,
       "cwd": "${workspaceFolder}",
       "environment": [],
-      "externalConsole": false,
+      "externalConsole": true,
       "MIMode": "gdb",
       
       "miDebuggerPath": "D://CodeBlocks//MinGW//bin//gdb32.exe", // GDB的路径，注意替换成自己的路径
