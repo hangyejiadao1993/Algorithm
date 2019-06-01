@@ -7,7 +7,7 @@ using namespace std;
 #define ERROR 0
 #define MAX 1000
 /*
-×îĞ¡Éú³ÉÊ÷
+æœ€å°ç”Ÿæˆæ ‘
 */
 typedef struct Arcell
 {
@@ -15,20 +15,20 @@ typedef struct Arcell
 }Arcell, AdjMatrix[MAX_VERTEX_NUM][MAX_VERTEX_NUM];
 typedef struct
 {
-	char vexs[MAX_VERTEX_NUM];//½ÚµãÊı×é
-	AdjMatrix arcs;//ÁÚ½Ó¾ØÕó
-	int vexnum, arcnum;//Í¼µÄµ±Ç°½ÚµãÊıºÍ»¡Êı
+	char vexs[MAX_VERTEX_NUM];//èŠ‚ç‚¹æ•°ç»„
+	AdjMatrix arcs;//é‚»æ¥çŸ©é˜µ
+	int vexnum, arcnum;//å›¾çš„å½“å‰èŠ‚ç‚¹æ•°å’Œå¼§æ•°
 }MGraph;
-typedef struct Pnode//ÓÃÓÚÆÕÀûÄ·Ëã·¨
+typedef struct Pnode//ç”¨äºæ™®åˆ©å§†ç®—æ³•
 {
-	char adjvex;//½Úµã
-	double lowcost;//È¨Öµ
-}Pnode, Closedge[MAX_VERTEX_NUM];//¼ÇÂ¼¶¥µã¼¯Uµ½V-UµÄ´ú¼Û×îĞ¡µÄ±ßµÄ¸¨ÖúÊı×é¶¨Òå
-typedef struct Knode//ÓÃÓÚ¿ËÂ³Ë¹¿¨¶ûËã·¨ÖĞ´æ´¢Ò»Ìõ±ß¼°Æä¶ÔÓ¦µÄ2¸ö½Úµã
+	char adjvex;//èŠ‚ç‚¹
+	double lowcost;//æƒå€¼
+}Pnode, Closedge[MAX_VERTEX_NUM];//è®°å½•é¡¶ç‚¹é›†Uåˆ°V-Uçš„ä»£ä»·æœ€å°çš„è¾¹çš„è¾…åŠ©æ•°ç»„å®šä¹‰
+typedef struct Knode//ç”¨äºå…‹é²æ–¯å¡å°”ç®—æ³•ä¸­å­˜å‚¨ä¸€æ¡è¾¹åŠå…¶å¯¹åº”çš„2ä¸ªèŠ‚ç‚¹
 {
-	char ch1;//½Úµã1
-	char ch2;//½Úµã2
-	double value;//È¨Öµ
+	char ch1;//èŠ‚ç‚¹1
+	char ch2;//èŠ‚ç‚¹2
+	double value;//æƒå€¼
 }Knode, Dgevalue[MAX_VERTEX_NUM];
 
 
@@ -41,22 +41,22 @@ void Sortdge(Dgevalue&dgevalue, MGraph G);
 
 
 //-------------------------------------------------------------------------------
-int CreateUDG(MGraph&G, Dgevalue&dgevalue)//¹¹ÔìÎŞÏò¼ÓÈ¨Í¼µÄÁÚ½Ó¾ØÕó
+int CreateUDG(MGraph&G, Dgevalue&dgevalue)//æ„é€ æ— å‘åŠ æƒå›¾çš„é‚»æ¥çŸ©é˜µ
 {
 	int i, j, k;
-	cout << "ÇëÊäÈëÍ¼ÖĞ½Úµã¸öÊıºÍ±ß/»¡µÄÌõÊı£º";
+	cout << "è¯·è¾“å…¥å›¾ä¸­èŠ‚ç‚¹ä¸ªæ•°å’Œè¾¹/å¼§çš„æ¡æ•°ï¼š";
 	cin >> G.vexnum >> G.arcnum;
-	cout << "ÇëÊäÈë½Úµã£º";
+	cout << "è¯·è¾“å…¥èŠ‚ç‚¹ï¼š";
 	for (i = 0;i < G.vexnum;++i)
 		cin >> G.vexs[i];
-	for (i = 0;i < G.vexnum;++i)//³õÊ¼»¯Êı×é
+	for (i = 0;i < G.vexnum;++i)//åˆå§‹åŒ–æ•°ç»„
 	{
 		for (j = 0;j < G.vexnum;++j)
 		{
 			G.arcs[i][j].adj = MAX;
 		}
 	}
-	cout << "ÇëÊäÈëÒ»Ìõ±ßÒÀ¸½µÄ¶¨µã¼°±ßµÄÈ¨Öµ£º" << endl;
+	cout << "è¯·è¾“å…¥ä¸€æ¡è¾¹ä¾é™„çš„å®šç‚¹åŠè¾¹çš„æƒå€¼ï¼š" << endl;
 	for (k = 0;k < G.arcnum;++k)
 	{
 		cin >> dgevalue[k].ch1 >> dgevalue[k].ch2 >> dgevalue[k].value;
@@ -67,7 +67,7 @@ int CreateUDG(MGraph&G, Dgevalue&dgevalue)//¹¹ÔìÎŞÏò¼ÓÈ¨Í¼µÄÁÚ½Ó¾ØÕó
 	}
 	return OK;
 }
-int LocateVex(MGraph G, char ch)//È·¶¨½ÚµãchÔÚÍ¼G.vexsÖĞµÄÎ»ÖÃ
+int LocateVex(MGraph G, char ch)//ç¡®å®šèŠ‚ç‚¹chåœ¨å›¾G.vexsä¸­çš„ä½ç½®
 {
 	int a;
 	for (int i = 0;i < G.vexnum;i++)
@@ -77,7 +77,7 @@ int LocateVex(MGraph G, char ch)//È·¶¨½ÚµãchÔÚÍ¼G.vexsÖĞµÄÎ»ÖÃ
 	}
 	return a;
 }
-void MiniSpanTree_PRIM(MGraph G, char u)//ÆÕÀûÄ·Ëã·¨Çó×îĞ¡Éú³ÉÊ÷
+void MiniSpanTree_PRIM(MGraph G, char u)//æ™®åˆ©å§†ç®—æ³•æ±‚æœ€å°ç”Ÿæˆæ ‘
 {
 	int i, j, k;
 	Closedge closedge;
@@ -106,7 +106,7 @@ void MiniSpanTree_PRIM(MGraph G, char u)//ÆÕÀûÄ·Ëã·¨Çó×îĞ¡Éú³ÉÊ÷
 		}
 	}
 }
-int Minimum(MGraph G, Closedge closedge)//ÇóclosedgeÖĞÈ¨Öµ×îĞ¡µÄ±ß£¬²¢·µ»ØÆä¶¥µãÔÚvexsÖĞµÄÎ»ÖÃ
+int Minimum(MGraph G, Closedge closedge)//æ±‚closedgeä¸­æƒå€¼æœ€å°çš„è¾¹ï¼Œå¹¶è¿”å›å…¶é¡¶ç‚¹åœ¨vexsä¸­çš„ä½ç½®
 {
 	int i, j;
 	double k = 1000;
@@ -120,13 +120,13 @@ int Minimum(MGraph G, Closedge closedge)//ÇóclosedgeÖĞÈ¨Öµ×îĞ¡µÄ±ß£¬²¢·µ»ØÆä¶¥µã
 	}
 	return j;
 }
-void MiniSpanTree_KRSL(MGraph G, Dgevalue&dgevalue)//¿ËÂ³Ë¹¿¨¶ûËã·¨Çó×îĞ¡Éú³ÉÊ÷
+void MiniSpanTree_KRSL(MGraph G, Dgevalue&dgevalue)//å…‹é²æ–¯å¡å°”ç®—æ³•æ±‚æœ€å°ç”Ÿæˆæ ‘
 {
 	int p1, p2, i, j;
-	int bj[MAX_VERTEX_NUM];//±ê¼ÇÊı×é
-	for (i = 0;i < G.vexnum;i++)//±ê¼ÇÊı×é³õÊ¼»¯
+	int bj[MAX_VERTEX_NUM];//æ ‡è®°æ•°ç»„
+	for (i = 0;i < G.vexnum;i++)//æ ‡è®°æ•°ç»„åˆå§‹åŒ–
 		bj[i] = i;
-	Sortdge(dgevalue, G);//½«ËùÓĞÈ¨Öµ°´´ÓĞ¡µ½´óÅÅĞò
+	Sortdge(dgevalue, G);//å°†æ‰€æœ‰æƒå€¼æŒ‰ä»å°åˆ°å¤§æ’åº
 	for (i = 0;i < G.arcnum;i++)
 	{
 		p1 = bj[LocateVex(G, dgevalue[i].ch1)];
@@ -142,7 +142,7 @@ void MiniSpanTree_KRSL(MGraph G, Dgevalue&dgevalue)//¿ËÂ³Ë¹¿¨¶ûËã·¨Çó×îĞ¡Éú³ÉÊ÷
 		}
 	}
 }
-void Sortdge(Dgevalue&dgevalue, MGraph G)//¶ÔdgevalueÖĞ¸÷ÔªËØ°´È¨Öµ°´´ÓĞ¡µ½´óÅÅĞò
+void Sortdge(Dgevalue&dgevalue, MGraph G)//å¯¹dgevalueä¸­å„å…ƒç´ æŒ‰æƒå€¼æŒ‰ä»å°åˆ°å¤§æ’åº
 {
 	int i, j;
 		double temp;
@@ -173,20 +173,20 @@ int main()
 	char u;
 	Dgevalue dgevalue;
 	CreateUDG(G, dgevalue);
-	cout << "Í¼µÄÁÚ½Ó¾ØÕóÎª£º" << endl;
+	cout << "å›¾çš„é‚»æ¥çŸ©é˜µä¸ºï¼š" << endl;
 	for (i = 0;i < G.vexnum;i++)
 	{
 		for (j = 0;j < G.vexnum;j++)
 			cout << G.arcs[i][j].adj << "";
 		cout << endl;
 	}
-	cout << "=============ÆÕÀûÄ·Ëã·¨===============\n";
-	cout << "ÇëÊäÈëÆğÊ¼µã£º";
+	cout << "=============æ™®åˆ©å§†ç®—æ³•===============\n";
+	cout << "è¯·è¾“å…¥èµ·å§‹ç‚¹ï¼š";
 	cin >> u;
-	cout << "¹¹³É×îĞ¡´ú¼ÛÉú³ÉÊ÷µÄ±ß¼¯Îª£º\n";
+	cout << "æ„æˆæœ€å°ä»£ä»·ç”Ÿæˆæ ‘çš„è¾¹é›†ä¸ºï¼š\n";
 	MiniSpanTree_PRIM(G, u);
-	cout << "============¿ËÂ³Ë¹¿Æ¶ûËã·¨=============\n";
-	cout << "¹¹³É×îĞ¡´ú¼ÛÉú³ÉÊ÷µÄ±ß¼¯Îª£º\n";
+	cout << "============å…‹é²æ–¯ç§‘å°”ç®—æ³•=============\n";
+	cout << "æ„æˆæœ€å°ä»£ä»·ç”Ÿæˆæ ‘çš„è¾¹é›†ä¸ºï¼š\n";
 	MiniSpanTree_KRSL(G, dgevalue);
 	return 0;
 }

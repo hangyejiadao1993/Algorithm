@@ -1,5 +1,5 @@
 /*
-¶ş²æËÑË÷Ê÷
+äºŒå‰æœç´¢æ ‘
 
 */
 #include <iostream>
@@ -81,7 +81,7 @@ BinarySearchTree<Comparable>::~BinarySearchTree()
 template <typename Comparable>
 const Comparable &BinarySearchTree<Comparable>::findMin() const
 {
-	// TODO: ÔÚ´Ë´¦²åÈë return Óï¾ä
+	// TODO: åœ¨æ­¤å¤„æ’å…¥ return è¯­å¥
 }
 
 template <typename Comparable>

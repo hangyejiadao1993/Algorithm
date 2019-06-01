@@ -1,10 +1,10 @@
 /*
-Á´½Ó£ºhttps://www.nowcoder.com/questionTerminal/8a19cbe657394eeaac2f6ea9b0f6fcf6?orderByHotValue=1&page=1&onlyReference=false
-À´Ô´£ºÅ£¿ÍÍø
+é“¾æ¥ï¼šhttps://www.nowcoder.com/questionTerminal/8a19cbe657394eeaac2f6ea9b0f6fcf6?orderByHotValue=1&page=1&onlyReference=false
+æ¥æºï¼šç‰›å®¢ç½‘
 
-ÊäÈëÄ³¶ş²æÊ÷µÄÇ°Ğò±éÀúºÍÖĞĞò±éÀúµÄ½á¹û£¬ÇëÖØ½¨³ö¸Ã¶ş²æÊ÷¡£
-¼ÙÉèÊäÈëµÄÇ°Ğò±éÀúºÍÖĞĞò±éÀúµÄ½á¹ûÖĞ¶¼²»º¬ÖØ¸´µÄÊı×Ö¡£ÀıÈçÊäÈëÇ°Ğò±éÀúĞòÁĞ{1,2,4,7,3,5,6,8}ºÍÖĞĞò±éÀúĞòÁĞ{4,7,2,1,5,3,8,6}£¬
-ÔòÖØ½¨¶ş²æÊ÷²¢·µ»Ø¡£
+è¾“å…¥æŸäºŒå‰æ ‘çš„å‰åºéå†å’Œä¸­åºéå†çš„ç»“æœï¼Œè¯·é‡å»ºå‡ºè¯¥äºŒå‰æ ‘ã€‚
+å‡è®¾è¾“å…¥çš„å‰åºéå†å’Œä¸­åºéå†çš„ç»“æœä¸­éƒ½ä¸å«é‡å¤çš„æ•°å­—ã€‚ä¾‹å¦‚è¾“å…¥å‰åºéå†åºåˆ—{1,2,4,7,3,5,6,8}å’Œä¸­åºéå†åºåˆ—{4,7,2,1,5,3,8,6}ï¼Œ
+åˆ™é‡å»ºäºŒå‰æ ‘å¹¶è¿”å›ã€‚
 
 */
 
@@ -51,7 +51,7 @@ struct TreeNode* reConstructBinaryTree(vector<int> pre, vector<int> in)
 
 
 
-//Ç°Ğò±éÀú
+//å‰åºéå†
 void Pre(TreeNode *root) {
 
 	if (root!=NULL)
@@ -63,7 +63,7 @@ void Pre(TreeNode *root) {
 
 }
 
-//ÖĞĞò±éÀú
+//ä¸­åºéå†
 void Middle(TreeNode *root) {
 	if (root!=NULL)
 	{
@@ -74,7 +74,7 @@ void Middle(TreeNode *root) {
 
 
 }
-//ºóĞò±éÀú
+//ååºéå†
 
 
 void Last(TreeNode *root) {
@@ -93,12 +93,12 @@ int main()
 	vector<int> in = { 4, 7, 2, 1, 5, 3, 8, 6 };
 	TreeNode* root = reConstructBinaryTree(pre, in); 
 
-	cout << "Ç°Ğò±éÀú" << endl;
+	cout << "å‰åºéå†" << endl;
 	Pre(root);
 
-	cout << "ÖĞĞò±éÀú" << endl;
+	cout << "ä¸­åºéå†" << endl;
 	Middle(root);
-	cout << "ºóĞò±éÀú" << endl;
+	cout << "ååºéå†" << endl;
 	Last(root);
 
 	system("pause");
