@@ -1,8 +1,21 @@
 /**
  * 贪婪算法 - 集合覆盖问题
  * @author Administrator
+ * 集合覆盖问题:
+
+假设存在如下表的需要付费的广播台，以及广播台信号可以覆盖的地区。
+如何选择最少的广播台，让所有的地区都可以接收到信号。
+
+广播台	覆盖地区
+K1	ID,NV,UT
+K2	WA,ID,MT
+K3	OR,NV,CA
+K4	NV,UT
+K5	CA,AZ
+…	…
  *
  */
+
 public class A1 {
 
     public static void main(String[] args){
