@@ -8,7 +8,7 @@ struct TreeNode
      T data;
      TreeNode<T> *left;
      TreeNode<T> *right;
-     TreeNode(const T &X):data(x),
+     TreeNode(const T &x):data(x),
      left(NULL),
      right(NULL){}
 };
@@ -56,14 +56,14 @@ bool IsComplete(TreeNode<T>*root){
                     return false;
                 } 
             }
-            return false;
+            return true;
             
        }
        
        
     }
     
-    return false;
+    return true;
 }
 
 
@@ -160,9 +160,10 @@ void test5()
 int main()
 {
     test1();
-    /*test2();*/
-    /*test3();*/
-    /*test4();*/
-    /*test5();*/
+     test2(); 
+     test3();
+     test4();
+     test5();
+    system("pause");
     return 0;
 }
