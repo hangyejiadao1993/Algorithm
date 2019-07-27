@@ -32,36 +32,46 @@ struct TreeNode
     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
 };
 
- class Solution {
+class Solution
+{
 public:
-    bool findTarget(TreeNode* root, int k) {
+    bool findTarget(TreeNode *root, int k)
+    {
         // One way is to convert the BST to a sorted list
         // and then find the two elements going
         // through the list
-        if (root == NULL) {
+        if (root == NULL)
+        {
             return false;
         }
         vector<int> v;
         preOrderTraversal(root, v);
-        
+
         int startIdx = 0;
-        int endIdx = v.size()-1;
-        
-        while (startIdx < endIdx) {
-            if (v[startIdx] + v[endIdx] == k) {
+        int endIdx = v.size() - 1;
+
+        while (startIdx < endIdx)
+        {
+            if (v[startIdx] + v[endIdx] == k)
+            {
                 return true;
             }
-            if (v[startIdx] + v[endIdx] > k) {
+            if (v[startIdx] + v[endIdx] > k)
+            {
                 endIdx -= 1;
-            } else {
+            }
+            else
+            {
                 startIdx += 1;
             }
         }
         return false;
     }
-    
-    void preOrderTraversal(TreeNode *root, vector<int>& v) {
-        if (root == NULL) {
+
+    void preOrderTraversal(TreeNode *root, vector<int> &v)
+    {
+        if (root == NULL)
+        {
             return;
         }
         preOrderTraversal(root->left, v);
