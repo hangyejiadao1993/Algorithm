@@ -5,6 +5,13 @@
   "version": "0.2.0",
   "configurations": [
     {
+      "type": "java",
+      "name": "CodeLens (Launch) - A2",
+      "request": "launch",
+      "mainClass": "A2",
+      "projectName": "Algorithm_91e5e2a8"
+    },
+    {
       "name": "Python: 当前文件",
       "type": "python",
       "request": "launch",
@@ -23,7 +30,7 @@
       "environment": [],
       "externalConsole": true,
       "MIMode": "gdb",
-      "miDebuggerPath": "D://CodeBlocks//MinGW//bin//gdb32.exe", // GDB的路径，注意替换成自己的路径
+      "miDebuggerPath": "D://CodeBlocks//MinGW//bin//gdb32.exe",
       "setupCommands": [
         {
           "description": "Enable pretty-printing for gdb",
